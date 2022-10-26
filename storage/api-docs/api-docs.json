@@ -1,0 +1,376 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API документация",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/notebook": {
+            "get": {
+                "summary": "Получение список дневников по страницам",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "message": {
+                                                    "type": "json"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Добавить новый дневник",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "full_name",
+                                    "email",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "full_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Komron"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "Samo OJSC"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7-996-197-7608"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "25-03-1999"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "full_name": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "Komron"
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "Samo OJSC"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "+7-996-197-7608"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user1@mail.com"
+                                                },
+                                                "birthday": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "25-03-1999"
+                                                },
+                                                "image": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/notebook/{notebook}": {
+            "get": {
+                "summary": "Получить дневник с идентификатором",
+                "parameters": [
+                    {
+                        "name": "notebook",
+                        "in": "path",
+                        "description": "Идентификатор дневника",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "7"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "full_name": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "Komron"
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "Samo OJSC"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "+7-996-197-7608"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user1@mail.com"
+                                                },
+                                                "birthday": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "25-03-1999"
+                                                },
+                                                "image": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Обновление дневника",
+                "parameters": [
+                    {
+                        "name": "notebook",
+                        "in": "path",
+                        "description": "Идентификатор дневника",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "5"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "full_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Yusuzoda"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "SDPub OJSC"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7-996-197-7608"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user133@mail.com"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "25-03-1980"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "full_name": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "Komron"
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "Samo OJSC"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "+7-996-197-7608"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user1@mail.com"
+                                                },
+                                                "birthday": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "25-03-1999"
+                                                },
+                                                "image": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Удаление дневника",
+                "parameters": [
+                    {
+                        "name": "notebook",
+                        "in": "path",
+                        "description": "Идентификатор дневника",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "format": "text",
+                                                    "example": "10"
+                                                },
+                                                "full_name": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "Komron"
+                                                },
+                                                "company": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "Samo OJSC"
+                                                },
+                                                "phone": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "+7-996-197-7608"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "user1@mail.com"
+                                                },
+                                                "birthday": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "25-03-1999"
+                                                },
+                                                "image": {
+                                                    "type": "string",
+                                                    "format": "text",
+                                                    "example": "https://via.placeholder.com/400x400.png/00dd22?text=rem"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
