@@ -22,7 +22,7 @@ class NotebookFactory extends Factory
             'phone' => $this->faker->unique()->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
             'birthday' => $this->faker->dateTimeBetween('1990-01-01', '2012-12-31')
-                ->format('d/m/Y'),
+                ->format('d-m-Y'),
             'image' => $this->faker->imageUrl($width=400, $height=400),
         ];
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('company', 30)->comment('Компания')->nullable();
             $table->string('phone',16)->unique()->comment('Телефон');
             $table->string('email')->unique()->comment('Email');
-            $table->date('birthday')->comment('Дата рождения')->nullable();
+            $table->string('birthday')->comment('Дата рождения')->nullable();
             $table->string('image')->comment('Фото')->nullable();
             $table->timestamps();
             $table->softDeletes();
